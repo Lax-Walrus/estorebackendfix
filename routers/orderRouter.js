@@ -5,6 +5,16 @@ import { isAuth, isAdmin } from "../utils.js";
 
 const orderRouter = express.Router();
 
+orderRouter.get(
+  "/",
+  isAuth,
+  isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({}).populate("user", "name");
+    res.send(orders);
+  })
+);
+
 orderRouter.post(
   "/",
   isAuth,
@@ -71,16 +81,6 @@ orderRouter.put(
     } else {
       res.status(404).send({ message: "Order Not Found" });
     }
-  })
-);
-
-orderRouter.get(
-  "/",
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const orders = await Order.find({}).populate("user", "name");
-    res.send(orders);
   })
 );
 
