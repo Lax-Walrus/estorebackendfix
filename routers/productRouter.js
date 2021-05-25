@@ -154,7 +154,7 @@ productRouter.post(
       if (product.reviews.find((x) => x.name === req.user.name)) {
         return res
           .status(400)
-          .send({ message: "Review as aready beent submitted" });
+          .send({ message: "Review has aready beent submitted" });
       }
       const review = {
         name: req.user.name,
