@@ -36,6 +36,7 @@ const data = {
       rating: 4.5,
       numReviews: 10,
       description: "High quality product",
+      seller: { name: "Boss Kevin" },
     },
     {
       name: "Grey Suit",
@@ -47,6 +48,7 @@ const data = {
       rating: 2.5,
       numReviews: 8,
       description: "High quality product",
+      seller: { name: "Boss Kevin" },
     },
     {
       name: "White Button-Up",
@@ -58,6 +60,7 @@ const data = {
       rating: 4.5,
       numReviews: 30,
       description: "High quality product",
+      seller: { name: "Boss Kevin" },
     },
     {
       name: "Green Suit",
@@ -69,6 +72,7 @@ const data = {
       rating: 3.5,
       numReviews: 10,
       description: "High quality product",
+      seller: { name: "Boss Kevin" },
     },
     {
       name: "Salmon Suit",
@@ -80,6 +84,7 @@ const data = {
       rating: 5,
       numReviews: 50,
       description: "High quality product",
+      seller: { name: "Boss Kevin" },
     },
   ],
 };
