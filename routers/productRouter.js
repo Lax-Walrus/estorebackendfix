@@ -69,7 +69,7 @@ productRouter.get(
     //   ...product,
     //   seller: seller._id,
     // }));
-    const createdProducts = await Product.insertMany(products);
+    const createdProducts = await Product.insertMany();
     res.send({ createdProducts });
     // } else {
     //   res
