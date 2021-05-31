@@ -7,6 +7,13 @@ const data = {
       password: bcrypt.hashSync("password", 8),
       isAdmin: true,
       isSeller: false,
+      seller: {
+        name: "Boss Kevin",
+        logo: "/images/product-6",
+        description: "Best Seller",
+        rating: 5,
+        numReviews: 120,
+      },
     },
 
     {
@@ -14,7 +21,7 @@ const data = {
       email: "Kevin@Kevin.Kevin",
       password: bcrypt.hashSync("password", 8),
       isAdmin: false,
-      isSeller: true,
+      isSeller: false,
     },
   ],
 
