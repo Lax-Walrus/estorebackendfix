@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Lax-Walrus/estorebackendfix#readme",
   "dependencies": {
+    "aws-sdk": "^2.920.0",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
@@ -29,7 +30,8 @@
     "mailgun-js": "^0.22.0",
     "mongojs": "^3.1.0",
     "mongoose": "^5.12.7",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0"
   },
   "engines": {
     "node": "14.16.1",
