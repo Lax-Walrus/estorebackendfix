@@ -9,7 +9,6 @@ import {
   payOrderEmailTemplate,
 } from "../utils.js";
 
-import mongojs from "mongojs";
 const orderRouter = express.Router();
 
 orderRouter.get(
