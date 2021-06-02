@@ -9,6 +9,7 @@ import {
   payOrderEmailTemplate,
 } from "../utils.js";
 
+import mongojs from "mongojs";
 const orderRouter = express.Router();
 
 orderRouter.get(
@@ -78,9 +79,10 @@ orderRouter.put(
   "/:id/pay",
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const order = await (
-      await Order.findById(req.params.id)
-    ).populate("user", "email name");
+    const order = await Order.findById(req.params.id).populate(
+      "user",
+      "email name"
+    );
     if (order) {
       order.isPaid = true;
       order.paidAt = Date.now();
@@ -91,13 +93,12 @@ orderRouter.put(
         email_address: req.body.email_address,
       };
       const updatedOrder = await order.save();
-      console.log(order.user.email);
       mailgun()
         .messages()
         .send(
           {
             from: "Da-Nile <DaNile@mg.mydomain.com>",
-            to: ` ${order.user.email}, ${order.user.name} `,
+            to: ` ${order.user.name} <${order.user.email}>  `,
             subject: `New Order ${order._id}`,
             html: payOrderEmailTemplate(order),
           },
