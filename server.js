@@ -1,5 +1,5 @@
 import http from "http";
-import SocketIO from "socket.io";
+import { Server } from "socket.io";
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -8,7 +8,6 @@ import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import uploadRouter from "./routers/uploadRouter.js";
 import path from "path";
-import { IoTSecureTunneling } from "aws-sdk";
 
 dotenv.config();
 
@@ -59,7 +58,7 @@ app.get("*", (req, res) =>
 // });
 
 const httpServer = http.Server(app);
-const io = SocketIO(httpServer);
+const io = new Server(httpServer);
 const users = [];
 
 io.on("connection", (socket) => {
